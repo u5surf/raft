@@ -410,10 +410,12 @@ func TestNetworkTransport_AppendEntriesPipeline_CloseStreams(t *testing.T) {
 		respCh := pipeline.Consumer()
 	OUTER:
 		for i := 0; i < 100; i++ {
+			t.Log(i)
 			select {
 			case ready := <-respCh:
 				if err := ready.Error(); err != nil {
 					futureErr = err
+					t.Log(futureErr)
 					break OUTER
 				}
 
