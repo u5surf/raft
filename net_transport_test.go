@@ -427,7 +427,7 @@ func TestNetworkTransport_AppendEntriesPipeline_CloseStreams(t *testing.T) {
 				t.Fatalf("timeout when cancel streams is %v", cancelStreams)
 			}
 		}
-
+		t.Log(cancelStreams)
 		if cancelStreams && futureErr == nil {
 			t.Fatalf("expected an error due to the streams being closed")
 		} else if !cancelStreams && futureErr != nil {
